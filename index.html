@@ -37,8 +37,9 @@
             transform: scale(1.1); /* Zoom ao passar o mouse */
         }
         .text-below {
-            font-size: 2em;
+            font-size: 1.5em;
             margin-top: 20px;
+            line-height: 1.8;
         }
 
         /* Ajustes para telas menores (mobile) */
@@ -47,7 +48,7 @@
                 width: 150px; /* Rosa menor em dispositivos móveis */
             }
             .text-below {
-                font-size: 1.5em; /* Texto ajustado para mobile */
+                font-size: 1.3em; /* Texto ajustado para mobile */
             }
         }
     </style>
@@ -57,7 +58,15 @@
         <button id="play-button">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Red_rose.svg/1200px-Red_rose.svg.png" alt="Rosa"> <!-- Rosa -->
         </button>
-        <div class="text-below" id="text-below">Feliz Dia das Mulheres! 🌹<br>Você é única e especial. 💕</div>
+        <div class="text-below" id="text-below" style="display: none;">
+            O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
+            
+            Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de tonta e se impõe com seus melhores argumentos em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.<br><br>
+            
+            <strong>Feliz Dia da Mulher!!!</strong><br><br>
+            
+            <em>P.s.: Eu ouvi o seu áudio, mas ainda estou processando tudo e esperando que tanto os maus quanto os bons sentimentos sejam filtrados na minha cabeça antes de comentar algo. Desculpe por não responder ainda. Mas esta carta não é sobre Eu e a Mabi, é somente sobre a mulher que a Maria Gabriela se tornou.</em>
+        </div>
     </div>
 
     <!-- Elemento de áudio -->
@@ -75,9 +84,6 @@
 
         // Captura o texto abaixo
         const textBelow = document.getElementById('text-below');
-
-        // Oculta o texto inicialmente
-        textBelow.style.display = 'none';
 
         // Adiciona um evento de clique ao botão para iniciar a reprodução do áudio
         playButton.addEventListener('click', function() {
