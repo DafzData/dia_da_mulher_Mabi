@@ -83,7 +83,7 @@
         .word {
             opacity: 0; /* Inicialmente invisível */
             display: inline-block;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.3s ease; /* Aumentei a velocidade da transição */
             white-space: pre; /* Preserva espaços em branco */
         }
         @media (max-width: 768px) {
@@ -136,7 +136,8 @@
 
         // Texto principal
         const textoPrincipal = `
-            O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
+            O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.
+
             Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas as suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
         `;
 
@@ -147,19 +148,20 @@
 
             function mostrarProximaPalavra() {
                 if (index < palavras.length) {
-                    const palavra = palavras[index];
-                    const span = document.createElement('span');
-                    span.className = 'word';
-                    span.textContent = palavra; // Usa textContent para evitar problemas com HTML
-                    elemento.appendChild(span);
+                    const palavra = palavras[index].trim(); // Remove espaços extras
+                    if (palavra) { // Ignora espaços vazios
+                        const span = document.createElement('span');
+                        span.className = 'word';
+                        span.textContent = palavra + ' '; // Adiciona espaço após cada palavra
+                        elemento.appendChild(span);
 
-                    // Aplica a transição de opacidade
-                    setTimeout(() => {
-                        span.style.opacity = 1;
-                    }, 10);
-
+                        // Aplica a transição de opacidade
+                        setTimeout(() => {
+                            span.style.opacity = 1;
+                        }, 10);
+                    }
                     index++;
-                    setTimeout(mostrarProximaPalavra, 200); // Velocidade de 200ms por palavra
+                    setTimeout(mostrarProximaPalavra, 100); // Velocidade aumentada para 100ms por palavra
                 } else {
                     // Após o texto principal terminar, exibe o highlight e o PS
                     highlight.style.opacity = 1;
