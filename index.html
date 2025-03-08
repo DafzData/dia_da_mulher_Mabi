@@ -39,7 +39,7 @@
             transform: scale(1.1);
         }
         .text-below {
-            font-size: 2em;
+            font-size: 2.5em; /* Aumento do tamanho do texto principal */
             margin-top: 20px;
             line-height: 1.8;
             display: none;
@@ -47,7 +47,7 @@
         }
         .ps {
             font-style: italic;
-            margin-top: 20px;
+            margin-top: 40px; /* Espaço maior antes do P.S. */
             font-size: 0.9em; /* Reduzido para não se destacar mais que o texto principal */
             font-family: Georgia, serif; /* Fonte mais legível */
             color: #d0d0d0; /* Cor um pouco mais clara para melhor contraste */
@@ -56,12 +56,20 @@
             font-size: 3em; /* Aumenta a mensagem inicial */
             margin-bottom: 20px;
         }
+        .intro-text strong {
+            font-weight: bold; /* Destaque em negrito para "Maria Gabriela" */
+        }
+        .highlight {
+            font-size: 3em; /* Aumento ainda maior para "Feliz Dia da Mulher" */
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
         @media (max-width: 768px) {
             #play-button {
                 font-size: 180px;
             }
             .text-below {
-                font-size: 1.8em;
+                font-size: 2em; /* Ajuste para dispositivos móveis */
             }
             .ps {
                 font-size: 0.8em; /* Mantém menor para dispositivos móveis também */
@@ -69,18 +77,23 @@
             .intro-text {
                 font-size: 2.5em;
             }
+            .highlight {
+                font-size: 2.5em; /* Ajuste para dispositivos móveis */
+            }
         }
     </style>
 </head>
 <body>
     <div id="message">
-        <p class="intro-text">Uma flor para você, Maria Gabriela.<br>Toque nela para aceitá-la.</p>
+        <p class="intro-text">Uma flor para você, <strong>Maria Gabriela</strong>.<br>Toque nela para aceitá-la.</p>
         <button id="play-button">🌹</button>
         <div class="text-below" id="text-below">
             O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
-            Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de tonta e se impõem com seus melhores argumentos em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
+            Hoje é o seu dia, <strong>Maria Gabriela</strong>, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
             <br><br>
-            <strong>Feliz Dia da Mulher!!! ❤️ 🌷</strong>
+            <div class="highlight">
+                <strong>Feliz Dia da Mulher!!! ❤️ 🌷</strong>
+            </div>
             <p class="ps">
                 P.S.: Eu ouvi o seu áudio, mas ainda estou processando tudo e esperando que tanto os maus quanto os bons sentimentos sejam filtrados na minha cabeça antes de comentar algo. Eu preciso desse tempo quieto e refletindo. Então, por favor, me desculpe por não responder ainda. Mas esta carta não é sobre Eu e a Mabi, é somente sobre a mulher que a Maria Gabriela se tornou.
             </p>
