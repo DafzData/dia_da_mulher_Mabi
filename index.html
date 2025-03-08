@@ -84,6 +84,7 @@
             opacity: 0; /* Inicialmente invisível */
             display: inline-block;
             transition: opacity 0.5s ease;
+            white-space: pre; /* Preserva espaços em branco */
         }
         @media (max-width: 768px) {
             .intro-text {
@@ -133,7 +134,7 @@
         const highlight = document.getElementById('highlight');
         const ps = document.getElementById('ps');
 
-        // Texto principal dividido em palavras
+        // Texto principal
         const textoPrincipal = `
             O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
             Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas as suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
@@ -149,7 +150,7 @@
                     const palavra = palavras[index];
                     const span = document.createElement('span');
                     span.className = 'word';
-                    span.innerHTML = palavra; // Usa innerHTML para preservar <br> e espaços
+                    span.textContent = palavra; // Usa textContent para evitar problemas com HTML
                     elemento.appendChild(span);
 
                     // Aplica a transição de opacidade
