@@ -7,8 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
     <style>
         body {
-            background-color: #fdf5e6;
-            color: #333;
+            background-color: #2a2a2a; /* Fundo escuro, mas não totalmente preto */
+            color: #c0c0c0; /* Texto com baixo contraste para não forçar os olhos */
             font-family: 'Dancing Script', cursive, sans-serif;
             display: flex;
             flex-direction: column;
@@ -22,7 +22,7 @@
         }
         #message {
             text-align: center;
-            max-width: 800px; /* Limita a largura do conteúdo */
+            max-width: 800px;
             width: 100%;
         }
         #play-button {
@@ -30,7 +30,7 @@
             border: none;
             cursor: pointer;
             margin: 20px auto;
-            font-size: 250px; /* Tamanho do emoji da rosa aumentado */
+            font-size: 250px;
             transition: transform 0.2s ease;
             line-height: 1;
         }
@@ -38,36 +38,41 @@
             transform: scale(1.1);
         }
         .text-below {
-            font-size: 1.5em;
+            font-size: 2em; /* Texto maior para melhor visualização no celular */
             margin-top: 20px;
             line-height: 1.8;
-            display: none; /* Inicialmente oculto */
-            padding: 0 20px; /* Adiciona um pouco de espaço nas laterais */
+            display: none;
+            padding: 0 20px;
         }
         .ps {
-            font-style: italic; /* Estilo para o P.S. */
+            font-style: italic;
             margin-top: 20px;
-            font-size: 1em; /* Reduzido para ser igual ou menor que o texto principal */
+            font-size: 1.5em;
+        }
+        .intro-text {
+            font-size: 2.5em; /* Aumenta a mensagem inicial */
+            margin-bottom: 20px;
         }
         @media (max-width: 768px) {
             #play-button {
-                font-size: 180px; /* Rosa menor em dispositivos móveis, mas ainda grande */
+                font-size: 180px;
             }
             .text-below {
-                font-size: 1.3em;
+                font-size: 1.8em;
             }
             .ps {
-                font-size: 0.9em; /* Proporcionalmente menor em dispositivos móveis */
+                font-size: 1.3em;
+            }
+            .intro-text {
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
     <div id="message">
-        <p>Uma flor para você, Maria Gabriela.<br>Toque nela para aceitá-la.</p>
-        <button id="play-button">
-            🌹
-        </button>
+        <p class="intro-text">Uma flor para você, Maria Gabriela.<br>Toque nela para aceitá-la.</p>
+        <button id="play-button">🌹</button>
         <div class="text-below" id="text-below">
             O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
             Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de tonta e se impõem com seus melhores argumentos em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
@@ -92,10 +97,10 @@
         playButton.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
-                textBelow.style.display = 'block'; // Exibe o texto
+                textBelow.style.display = 'block';
             } else {
                 audio.pause();
-                textBelow.style.display = 'none'; // Oculta o texto
+                textBelow.style.display = 'none';
             }
         });
     </script>
