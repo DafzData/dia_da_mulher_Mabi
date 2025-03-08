@@ -30,64 +30,66 @@
             border: none;
             cursor: pointer;
             margin: 20px auto;
-            font-size: 280px; /* Tamanho aumentado do texto do botão */
+            font-size: 320px; /* Aumentei o tamanho do botão */
             transition: transform 0.2s ease;
             line-height: 1;
             color: inherit; /* Assegura que a cor do emoji se encaixe no tema */
-            font-family: 'Dancing Script', cursive; /* Fonte cursiva para o botão */
+            font-family: 'Dancing Script', cursive; /* Fonte ajustada para combinar */
         }
         #play-button:hover {
             transform: scale(1.1);
         }
         .text-below {
-            font-size: 1.2em; /* Tamanho igual ao do P.S. */
+            font-size: 1.2em; /* Tamanho do texto */
             margin-top: 20px;
             line-height: 1.8;
             display: none;
             padding: 0 20px;
-            font-family: Georgia, serif; /* Fonte igual à do P.S. */
-            color: #d0d0d0; /* Cor igual à do P.S. */
-            font-style: italic; /* Estilo igual ao do P.S. */
+            font-family: Georgia, serif;
+            color: #d0d0d0;
         }
         .ps {
             font-style: italic;
-            margin-top: 40px; /* Espaço maior antes do P.S. */
-            font-size: 1.2em; /* Tamanho igual ao do texto principal */
-            font-family: Georgia, serif; /* Fonte igual à do texto principal */
-            color: #d0d0d0; /* Cor um pouco mais clara para melhor contraste */
+            margin-top: 40px;
+            font-size: 1.2em;
+            font-family: Georgia, serif;
+            color: #d0d0d0;
         }
         .intro-text {
-            font-size: 1.5em; /* Tamanho igual ao do P.S. */
+            font-size: 1.5em;
             margin-bottom: 20px;
-            font-family: Georgia, serif; /* Fonte igual à do P.S. */
-            color: #d0d0d0; /* Cor igual à do P.S. */
-            font-style: italic; /* Estilo igual ao do P.S. */
+            font-family: Georgia, serif;
+            color: #d0d0d0;
+            font-style: italic;
         }
         .intro-text strong {
             font-weight: bold; /* Destaque em negrito para "Maria Gabriela" */
         }
         .highlight {
-            font-size: 3em; /* Aumento ainda maior para "Feliz Dia da Mulher" */
+            font-size: 4em; /* Aumentei ainda mais o tamanho da mensagem */
             margin-top: 30px;
             margin-bottom: 30px;
-            font-family: 'Dancing Script', cursive; /* Fonte cursiva para destacar */
+            font-family: 'Dancing Script', cursive; /* Fonte cursiva */
             color: #b0b0b0; /* Cor do texto principal */
+        }
+        .highlight strong {
+            font-style: normal; /* Retirei o itálico dos emojis */
         }
         @media (max-width: 768px) {
             #play-button {
-                font-size: 200px; /* Ajuste para dispositivos móveis */
+                font-size: 220px; /* Ajuste para dispositivos móveis */
             }
             .text-below {
-                font-size: 1em; /* Ajuste para dispositivos móveis */
+                font-size: 1em;
             }
             .ps {
-                font-size: 1em; /* Mantém menor para dispositivos móveis também */
+                font-size: 1em;
             }
             .intro-text {
-                font-size: 1.3em; /* Ajuste para dispositivos móveis */
+                font-size: 1.3em;
             }
             .highlight {
-                font-size: 2.5em; /* Ajuste para dispositivos móveis */
+                font-size: 3em; /* Ajuste para dispositivos móveis */
             }
         }
     </style>
