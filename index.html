@@ -30,7 +30,7 @@
             border: none;
             cursor: pointer;
             margin: 20px auto;
-            font-size: 150px; /* Tamanho do emoji da rosa */
+            font-size: 250px; /* Tamanho do emoji da rosa aumentado */
             transition: transform 0.2s ease;
             line-height: 1;
         }
@@ -47,14 +47,17 @@
         .ps {
             font-style: italic; /* Estilo para o P.S. */
             margin-top: 20px;
-            font-size: 1.2em;
+            font-size: 1em; /* Reduzido para ser igual ou menor que o texto principal */
         }
         @media (max-width: 768px) {
             #play-button {
-                font-size: 100px; /* Rosa menor em dispositivos móveis */
+                font-size: 180px; /* Rosa menor em dispositivos móveis, mas ainda grande */
             }
             .text-below {
                 font-size: 1.3em;
+            }
+            .ps {
+                font-size: 0.9em; /* Proporcionalmente menor em dispositivos móveis */
             }
         }
     </style>
