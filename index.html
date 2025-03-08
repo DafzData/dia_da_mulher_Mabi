@@ -67,6 +67,8 @@
             margin-bottom: 50px; /* Espaço após a mensagem */
             color: #b0b0b0;
             font-style: normal; /* Emojis sem itálico */
+            opacity: 0; /* Inicialmente invisível */
+            transition: opacity 1s ease;
         }
         .ps {
             font-size: 1.5em; /* Mesmo tamanho do texto principal */
@@ -75,6 +77,13 @@
             font-family: Georgia, serif;
             color: #d0d0d0;
             max-width: 800px; /* Garante mesma largura máxima */
+            opacity: 0; /* Inicialmente invisível */
+            transition: opacity 1s ease;
+        }
+        .word {
+            opacity: 0; /* Inicialmente invisível */
+            display: inline-block;
+            transition: opacity 0.5s ease;
         }
         @media (max-width: 768px) {
             .intro-text {
@@ -99,13 +108,13 @@
         <button id="play-button">🌹</button>
         <div class="text-below" id="text-below">
             <div class="main-text" id="main-text">
-                <!-- Texto principal será inserido dinamicamente pelo JavaScript -->
+                <!-- O texto principal será inserido aqui via JavaScript -->
             </div>
             <br><br>
-            <div class="highlight">
+            <div class="highlight" id="highlight">
                 <strong>Feliz Dia da Mulher!!! ❤️ 🌷</strong>
             </div>
-            <p class="ps">
+            <p class="ps" id="ps">
                 P.S.: Eu ouvi o seu áudio, mas ainda estou processando tudo e esperando que tanto os maus quanto os bons sentimentos sejam filtrados na minha cabeça antes de comentar algo. Se respondesse no mesmo dia minhas palavras estariam carregadas de raiva, decepção ou tristeza. E hoje eu já consigo perceber o seu esforço em reconhecer seus erros e ao pedir perdão. Mas eu ainda preciso desse tempo quieto e refletindo. Então, por favor, me desculpe por não responder ainda. Mas esta carta não é sobre Eu e a Mabi, é somente sobre a mulher que a Maria Gabriela se tornou, e que, apesar dos nossos conflitos, eu aprendi a admirá-la tanto em sua essência.
             </p>
         </div>
@@ -121,42 +130,59 @@
         const playButton = document.getElementById('play-button');
         const textBelow = document.getElementById('text-below');
         const mainText = document.getElementById('main-text');
+        const highlight = document.getElementById('highlight');
+        const ps = document.getElementById('ps');
 
-        // Texto principal dividido em sílabas
+        // Texto principal dividido em palavras
         const textoPrincipal = `
             O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
             Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas as suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
         `;
 
-        // Função para dividir o texto em sílabas
-        function dividirEmSilabas(texto) {
-            return texto.split(/(?<=[^aeiouáéíóúãõâêîôûàèìòùäëïöü])(?=[aeiouáéíóúãõâêîôûàèìòùäëïöü])/gi);
-        }
+        // Função para exibir o texto palavra por palavra
+        function exibirTextoPalavraPorPalavra(texto, elemento) {
+            const palavras = texto.split(' ');
+            let index = 0;
 
-        // Função para exibir o texto sílaba por sílaba
-        function exibirSilabas(texto, elemento) {
-            const silabas = dividirEmSilabas(texto);
-            let i = 0;
-            const intervalo = setInterval(() => {
-                if (i < silabas.length) {
-                    elemento.innerHTML += silabas[i];
-                    i++;
+            function mostrarProximaPalavra() {
+                if (index < palavras.length) {
+                    const palavra = palavras[index];
+                    const span = document.createElement('span');
+                    span.className = 'word';
+                    span.textContent = palavra + ' ';
+                    elemento.appendChild(span);
+
+                    // Aplica a transição de opacidade
+                    setTimeout(() => {
+                        span.style.opacity = 1;
+                    }, 10);
+
+                    index++;
+                    setTimeout(mostrarProximaPalavra, 200); // Velocidade de 200ms por palavra
                 } else {
-                    clearInterval(intervalo);
+                    // Após o texto principal terminar, exibe o highlight e o PS
+                    highlight.style.opacity = 1;
+                    ps.style.opacity = 1;
                 }
-            }, 150); // Velocidade de exibição (150ms por sílaba)
+            }
+
+            mostrarProximaPalavra();
         }
 
         playButton.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
                 textBelow.style.display = 'block';
-                mainText.innerHTML = ''; // Limpa o conteúdo anterior
-                exibirSilabas(textoPrincipal, mainText); // Exibe o texto sílaba por sílaba
+
+                // Limpa o conteúdo anterior e exibe o texto palavra por palavra
+                mainText.innerHTML = '';
+                exibirTextoPalavraPorPalavra(textoPrincipal, mainText);
             } else {
                 audio.pause();
                 textBelow.style.display = 'none';
-                mainText.innerHTML = ''; // Limpa o conteúdo ao ocultar o texto
+                mainText.innerHTML = ''; // Limpa o texto ao pausar
+                highlight.style.opacity = 0; // Oculta o highlight
+                ps.style.opacity = 0; // Oculta o PS
             }
         });
     </script>
