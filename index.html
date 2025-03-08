@@ -141,7 +141,7 @@
 
         // Função para exibir o texto palavra por palavra
         function exibirTextoPalavraPorPalavra(texto, elemento) {
-            const palavras = texto.split(' ');
+            const palavras = texto.split(/(\s+)/); // Divide o texto mantendo os espaços
             let index = 0;
 
             function mostrarProximaPalavra() {
@@ -149,7 +149,7 @@
                     const palavra = palavras[index];
                     const span = document.createElement('span');
                     span.className = 'word';
-                    span.textContent = palavra + ' ';
+                    span.innerHTML = palavra; // Usa innerHTML para preservar <br> e espaços
                     elemento.appendChild(span);
 
                     // Aplica a transição de opacidade
