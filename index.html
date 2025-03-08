@@ -61,7 +61,7 @@
             font-style: italic; /* Texto principal em itálico */
         }
         .paragraph-spacing {
-            margin-bottom: 40px; /* Espaço maior entre os parágrafos */
+            margin-bottom: 1.5em; /* Espaço de uma linha após o parágrafo */
         }
         .highlight {
             font-size: 4em; /* Mesmo tamanho do texto inicial */
@@ -146,25 +146,47 @@
 
         // Função para exibir o texto palavra por palavra
         function exibirTextoPalavraPorPalavra(texto, elemento) {
-            const palavras = texto.split(/(\s+)/); // Divide o texto mantendo os espaços
-            let index = 0;
+            const paragrafos = texto.split('\n'); // Divide o texto em parágrafos
+            let paragrafoIndex = 0;
 
-            function mostrarProximaPalavra() {
-                if (index < palavras.length) {
-                    const palavra = palavras[index].trim(); // Remove espaços extras
-                    if (palavra) { // Ignora espaços vazios
-                        const span = document.createElement('span');
-                        span.className = 'word';
-                        span.textContent = palavra + ' '; // Adiciona espaço após cada palavra
-                        elemento.appendChild(span);
+            function mostrarProximoParagrafo() {
+                if (paragrafoIndex < paragrafos.length) {
+                    const paragrafo = paragrafos[paragrafoIndex].trim();
+                    if (paragrafo) {
+                        const p = document.createElement('p');
+                        p.className = 'main-text' + (paragrafoIndex === 0 ? ' paragraph-spacing' : ''); // Adiciona espaçamento ao primeiro parágrafo
+                        elemento.appendChild(p);
 
-                        // Aplica a transição de opacidade
-                        setTimeout(() => {
-                            span.style.opacity = 1;
-                        }, 10);
+                        const palavras = paragrafo.split(/(\s+)/); // Divide o parágrafo em palavras mantendo os espaços
+                        let palavraIndex = 0;
+
+                        function mostrarProximaPalavra() {
+                            if (palavraIndex < palavras.length) {
+                                const palavra = palavras[palavraIndex].trim();
+                                if (palavra) {
+                                    const span = document.createElement('span');
+                                    span.className = 'word';
+                                    span.textContent = palavra + ' '; // Adiciona espaço após cada palavra
+                                    p.appendChild(span);
+
+                                    // Aplica a transição de opacidade
+                                    setTimeout(() => {
+                                        span.style.opacity = 1;
+                                    }, 10);
+                                }
+                                palavraIndex++;
+                                setTimeout(mostrarProximaPalavra, 100); // Velocidade aumentada para 100ms por palavra
+                            } else {
+                                paragrafoIndex++;
+                                setTimeout(mostrarProximoParagrafo, 500); // Intervalo entre parágrafos
+                            }
+                        }
+
+                        mostrarProximaPalavra();
+                    } else {
+                        paragrafoIndex++;
+                        mostrarProximoParagrafo();
                     }
-                    index++;
-                    setTimeout(mostrarProximaPalavra, 100); // Velocidade aumentada para 100ms por palavra
                 } else {
                     // Após o texto principal terminar, exibe o highlight e o PS
                     highlight.style.opacity = 1;
@@ -172,7 +194,7 @@
                 }
             }
 
-            mostrarProximaPalavra();
+            mostrarProximoParagrafo();
         }
 
         playButton.addEventListener('click', function() {
