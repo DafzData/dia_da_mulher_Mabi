@@ -30,13 +30,11 @@
             border: none;
             cursor: pointer;
             margin: 20px auto;
-        }
-        #play-button img {
-            width: 300px; /* Rosa grande */
+            font-size: 150px; /* Tamanho do emoji da rosa */
             transition: transform 0.2s ease;
-            display: block;
+            line-height: 1;
         }
-        #play-button img:hover {
+        #play-button:hover {
             transform: scale(1.1);
         }
         .text-below {
@@ -52,8 +50,8 @@
             font-size: 1.2em;
         }
         @media (max-width: 768px) {
-            #play-button img {
-                width: 250px; /* Rosa menor em dispositivos móveis */
+            #play-button {
+                font-size: 100px; /* Rosa menor em dispositivos móveis */
             }
             .text-below {
                 font-size: 1.3em;
@@ -64,7 +62,7 @@
 <body>
     <div id="message">
         <button id="play-button">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Red_rose.svg" alt="Rosa">
+            🌹
         </button>
         <div class="text-below" id="text-below">
             O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
