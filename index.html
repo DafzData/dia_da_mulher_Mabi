@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
     <style>
         body {
-            background-color: #4a4a4a;
-            color: #b0b0b0;
-            font-family: Georgia, serif;
+            background-color: #4a4a4a; /* Fundo menos escuro */
+            color: #b0b0b0; /* Texto com contraste suave */
+            font-family: Georgia, serif; /* Fonte padrão para o corpo */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,7 +19,6 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
-            overflow-x: hidden;
         }
         #message {
             text-align: center;
@@ -27,161 +26,56 @@
             width: 100%;
         }
         .intro-text {
-            font-size: 4em;
-            font-family: 'Dancing Script', cursive;
+            font-size: 4em; /* Mesmo tamanho do "Feliz Dia da Mulher" */
+            font-family: 'Dancing Script', cursive; /* Mesma fonte */
             margin-bottom: 20px;
-            color: #d0d0d0;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1.5s ease forwards;
+            color: #d0d0d0; /* Cor suave */
         }
         .intro-text strong {
-            font-weight: bold;
-        }
-        #flower-container {
-            position: relative;
-            height: 300px;
-            width: 300px;
-            margin: 20px auto;
-            perspective: 1000px;
-        }
-        .petal {
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle at 30% 30%, #ff6b81, #a30015);
-            border-radius: 50% 0 50% 50%;
-            top: 100px;
-            left: 100px;
-            transform-origin: bottom center;
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
-        .stem {
-            position: absolute;
-            width: 10px;
-            height: 0;
-            background: linear-gradient(to right, #006400, #228B22);
-            bottom: 0;
-            left: 145px;
-            transition: height 1.5s ease;
-        }
-        .text-below {
-            font-size: 1.5em;
-            margin-top: 20px;
-            line-height: 1.8;
-            padding: 0 20px;
-            font-family: Georgia, serif;
-            color: #d0d0d0;
-            display: none;
-            opacity: 0;
-        }
-        .paragraph {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        .highlight {
-            font-size: 4em;
-            font-family: 'Dancing Script', cursive;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            color: #b0b0b0;
-            font-style: normal;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 1.5s ease, transform 1.5s ease;
-        }
-        .ps {
-            font-size: 1.5em;
-            font-style: italic;
-            margin-top: 40px;
-            font-family: Georgia, serif;
-            color: #d0d0d0;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1.5s ease, transform 1.5s ease;
-        }
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
+            font-weight: bold; /* Negrito para "Maria Gabriela" */
         }
         #play-button {
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 50px;
-            color: #d0d0d0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: 10;
+            margin: 20px auto;
+            font-size: 280px;
+            transition: transform 0.2s ease;
+            line-height: 1;
+            color: inherit; /* Assegura que a cor do emoji se encaixe no tema */
         }
         #play-button:hover {
-            animation: pulse 1s infinite;
+            transform: scale(1.1);
         }
-        .heart {
-            position: absolute;
-            font-size: 20px;
-            color: #ff6b81;
-            opacity: 0;
-            animation: floatHeart 4s infinite;
+        .text-below {
+            font-size: 1.5em; /* Tamanho do texto principal */
+            margin-top: 20px;
+            line-height: 1.8;
+            padding: 0 20px;
+            font-family: Georgia, serif;
+            color: #d0d0d0;
         }
-        @keyframes floatHeart {
-            0% {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100px) rotate(359deg);
-                opacity: 0;
-            }
+        .highlight {
+            font-size: 4em; /* Mesmo tamanho do texto inicial */
+            font-family: 'Dancing Script', cursive; /* Mesma fonte */
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: #b0b0b0;
+            font-style: normal; /* Emojis sem itálico */
+        }
+        .ps {
+            font-size: 1.5em; /* Mesmo tamanho do texto principal */
+            font-style: italic;
+            margin-top: 40px;
+            font-family: Georgia, serif;
+            color: #d0d0d0;
         }
         @media (max-width: 768px) {
             .intro-text, .highlight {
-                font-size: 3em;
+                font-size: 3em; /* Ajuste para dispositivos móveis */
             }
             .text-below, .ps {
-                font-size: 1.3em;
-            }
-            #flower-container {
-                height: 240px;
-                width: 240px;
-            }
-            .petal {
-                width: 80px;
-                height: 80px;
-                top: 80px;
-                left: 80px;
-            }
-            .stem {
-                left: 115px;
+                font-size: 1.3em; /* Ajuste para dispositivos móveis */
             }
         }
     </style>
@@ -189,22 +83,15 @@
 <body>
     <div id="message">
         <p class="intro-text">Uma flor para você, <strong>Maria Gabriela</strong>. Toque nela para aceitá-la.</p>
-        
-        <div id="flower-container">
-            <div class="stem"></div>
-            <button id="play-button">✨</button>
-        </div>
-        
+        <button id="play-button">🌹</button>
         <div class="text-below" id="text-below">
-            <p class="paragraph" id="para1">O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.</p>
-            
-            <p class="paragraph" id="para2">Hoje é o seu dia, <strong>Maria Gabriela</strong>, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.</p>
-            
-            <div class="highlight" id="highlight">
+            O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
+            Hoje é o seu dia, <strong>Maria Gabriela</strong>, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
+            <br><br>
+            <div class="highlight">
                 <strong>Feliz Dia da Mulher!!! ❤️ 🌷</strong>
             </div>
-            
-            <p class="ps" id="ps">
+            <p class="ps">
                 P.S.: Eu ouvi o seu áudio, mas ainda estou processando tudo e esperando que tanto os maus quanto os bons sentimentos sejam filtrados na minha cabeça antes de comentar algo. Eu preciso desse tempo quieto e refletindo. Então, por favor, me desculpe por não responder ainda. Mas esta carta não é sobre Eu e a Mabi, é somente sobre a mulher que a Maria Gabriela se tornou.
             </p>
         </div>
@@ -219,122 +106,15 @@
         const audio = document.getElementById('audio');
         const playButton = document.getElementById('play-button');
         const textBelow = document.getElementById('text-below');
-        const flowerContainer = document.getElementById('flower-container');
-        const stem = document.querySelector('.stem');
-        const para1 = document.getElementById('para1');
-        const para2 = document.getElementById('para2');
-        const highlight = document.getElementById('highlight');
-        const ps = document.getElementById('ps');
-        
-        // Create petals
-        const petalCount = 8;
-        const petalAngles = [0, 45, 90, 135, 180, 225, 270, 315];
-        
-        for (let i = 0; i < petalCount; i++) {
-            const petal = document.createElement('div');
-            petal.className = 'petal';
-            petal.style.transform = `rotate(${petalAngles[i]}deg) translateX(50px)`;
-            flowerContainer.appendChild(petal);
-        }
-        
-        const petals = document.querySelectorAll('.petal');
-        
-        // Show play button after a short delay
-        setTimeout(() => {
-            playButton.style.opacity = 1;
-        }, 2000);
-        
-        // Create floating hearts function
-        function createHearts() {
-            const heartsInterval = setInterval(() => {
-                if (!audio.paused) {
-                    const heart = document.createElement('div');
-                    heart.className = 'heart';
-                    heart.innerHTML = '❤️';
-                    heart.style.left = Math.random() * 100 + '%';
-                    heart.style.animationDuration = (3 + Math.random() * 4) + 's';
-                    document.body.appendChild(heart);
-                    
-                    // Remove heart after animation
-                    setTimeout(() => {
-                        heart.remove();
-                    }, 5000);
-                } else {
-                    clearInterval(heartsInterval);
-                }
-            }, 1000);
-        }
-        
+
         playButton.addEventListener('click', function() {
-            // Grow stem
-            stem.style.height = '150px';
-            
-            // Show petals sequentially
-            petals.forEach((petal, index) => {
-                setTimeout(() => {
-                    petal.style.opacity = 1;
-                }, 300 * index);
-            });
-            
-            // Hide play button temporarily
-            playButton.style.opacity = 0;
-            
-            // Show play button again after flower animation
-            setTimeout(() => {
-                playButton.innerHTML = '🌹';
-                playButton.style.fontSize = '80px';
-                playButton.style.opacity = 1;
-                
-                // Add click event for fully bloomed flower
-                playButton.onclick = function() {
-                    if (audio.paused) {
-                        audio.play();
-                        textBelow.style.display = 'block';
-                        
-                        // Animate first paragraph after a short delay
-                        setTimeout(() => {
-                            textBelow.style.opacity = 1;
-                            para1.style.opacity = 1;
-                            para1.style.transform = 'translateY(0)';
-                            
-                            // Animate second paragraph
-                            setTimeout(() => {
-                                para2.style.opacity = 1;
-                                para2.style.transform = 'translateY(0)';
-                                
-                                // Animate highlight
-                                setTimeout(() => {
-                                    highlight.style.opacity = 1;
-                                    highlight.style.transform = 'scale(1)';
-                                    
-                                    // Animate ps
-                                    setTimeout(() => {
-                                        ps.style.opacity = 1;
-                                        ps.style.transform = 'translateY(0)';
-                                    }, 1000);
-                                }, 2000);
-                            }, 2000);
-                        }, 500);
-                        
-                        // Start creating hearts
-                        createHearts();
-                    } else {
-                        audio.pause();
-                        textBelow.style.display = 'none';
-                        textBelow.style.opacity = 0;
-                        
-                        // Reset paragraph animations
-                        para1.style.opacity = 0;
-                        para1.style.transform = 'translateY(20px)';
-                        para2.style.opacity = 0;
-                        para2.style.transform = 'translateY(20px)';
-                        highlight.style.opacity = 0;
-                        highlight.style.transform = 'scale(0.9)';
-                        ps.style.opacity = 0;
-                        ps.style.transform = 'translateY(20px)';
-                    }
-                };
-            }, petalCount * 300 + 500);
+            if (audio.paused) {
+                audio.play();
+                textBelow.style.display = 'block';
+            } else {
+                audio.pause();
+                textBelow.style.display = 'none';
+            }
         });
     </script>
 </body>
