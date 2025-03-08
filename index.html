@@ -54,6 +54,10 @@
             padding: 0 20px;
             font-family: Georgia, serif;
             color: #d0d0d0;
+            max-width: 800px; /* Garante mesma largura máxima */
+        }
+        .main-text {
+            font-size: 1.5em; /* Tamanho igual ao PS */
         }
         .highlight {
             font-size: 4em; /* Mesmo tamanho do texto inicial */
@@ -69,12 +73,13 @@
             margin-top: 40px;
             font-family: Georgia, serif;
             color: #d0d0d0;
+            max-width: 800px; /* Garante mesma largura máxima */
         }
         @media (max-width: 768px) {
             .intro-text, .highlight {
                 font-size: 3em; /* Ajuste para dispositivos móveis */
             }
-            .text-below, .ps {
+            .text-below, .ps, .main-text {
                 font-size: 1.3em; /* Ajuste para dispositivos móveis */
             }
         }
@@ -85,8 +90,10 @@
         <p class="intro-text">Uma flor para você, <strong>Maria Gabriela</strong>. Toque nela para aceitá-la.</p>
         <button id="play-button">🌹</button>
         <div class="text-below" id="text-below">
-            O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
-            Hoje é o seu dia, <strong>Maria Gabriela</strong>, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
+            <div class="main-text">
+                O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
+                Hoje é o seu dia, <strong>Maria Gabriela</strong>, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
+            </div>
             <br><br>
             <div class="highlight">
                 <strong>Feliz Dia da Mulher!!! ❤️ 🌷</strong>
