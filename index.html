@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensagem do Dia das Mulheres</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Georgia&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
     <style>
         body {
             background-color: #4a4a4a; /* Fundo menos escuro */
@@ -25,28 +25,41 @@
             max-width: 800px;
             width: 100%;
         }
+        .intro-text {
+            font-size: 4em; /* Mesmo tamanho do "Feliz Dia da Mulher" */
+            font-family: 'Dancing Script', cursive; /* Mesma fonte */
+            margin-bottom: 20px;
+            color: #d0d0d0; /* Cor suave */
+        }
         #play-button {
             background: none;
             border: none;
             cursor: pointer;
             margin: 20px auto;
-            font-size: 320px; /* Aumentei o tamanho do botão */
+            font-size: 280px;
             transition: transform 0.2s ease;
             line-height: 1;
             color: inherit; /* Assegura que a cor do emoji se encaixe no tema */
-            font-family: 'Dancing Script', cursive; /* Fonte ajustada para combinar */
         }
         #play-button:hover {
             transform: scale(1.1);
         }
         .text-below {
-            font-size: 1.2em; /* Tamanho do texto */
+            font-size: 1.2em;
             margin-top: 20px;
             line-height: 1.8;
             display: none;
             padding: 0 20px;
             font-family: Georgia, serif;
             color: #d0d0d0;
+        }
+        .highlight {
+            font-size: 4em; /* Mesmo tamanho do texto inicial */
+            font-family: 'Dancing Script', cursive; /* Mesma fonte */
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: #b0b0b0;
+            font-style: normal; /* Emojis sem itálico */
         }
         .ps {
             font-style: italic;
@@ -55,29 +68,9 @@
             font-family: Georgia, serif;
             color: #d0d0d0;
         }
-        .intro-text {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            font-family: Georgia, serif;
-            color: #d0d0d0;
-            font-style: italic;
-        }
-        .intro-text strong {
-            font-weight: bold; /* Destaque em negrito para "Maria Gabriela" */
-        }
-        .highlight {
-            font-size: 4em; /* Aumentei ainda mais o tamanho da mensagem */
-            margin-top: 30px;
-            margin-bottom: 30px;
-            font-family: 'Dancing Script', cursive; /* Fonte cursiva */
-            color: #b0b0b0; /* Cor do texto principal */
-        }
-        .highlight strong {
-            font-style: normal; /* Retirei o itálico dos emojis */
-        }
         @media (max-width: 768px) {
-            #play-button {
-                font-size: 220px; /* Ajuste para dispositivos móveis */
+            .intro-text, .highlight {
+                font-size: 3em; /* Ajuste para dispositivos móveis */
             }
             .text-below {
                 font-size: 1em;
@@ -85,18 +78,12 @@
             .ps {
                 font-size: 1em;
             }
-            .intro-text {
-                font-size: 1.3em;
-            }
-            .highlight {
-                font-size: 3em; /* Ajuste para dispositivos móveis */
-            }
         }
     </style>
 </head>
 <body>
     <div id="message">
-        <p class="intro-text">Uma flor para você, <strong>Maria Gabriela</strong>.<br>Toque nela para aceitá-la.</p>
+        <p class="intro-text">Uma flor para você, <strong>Maria Gabriela</strong>. Toque nela para aceitá-la.</p>
         <button id="play-button">🌹</button>
         <div class="text-below" id="text-below">
             O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
