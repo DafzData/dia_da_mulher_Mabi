@@ -64,7 +64,7 @@
             font-size: 4em; /* Mesmo tamanho do texto inicial */
             font-family: 'Dancing Script', cursive; /* Mesma fonte */
             margin-top: 30px;
-            margin-bottom: 50px; /* Aumentei o espaço após a mensagem (antes era 30px) */
+            margin-bottom: 50px; /* Espaço após a mensagem */
             color: #b0b0b0;
             font-style: normal; /* Emojis sem itálico */
         }
@@ -98,9 +98,8 @@
         <p class="intro-text">Uma flor para você, <strong>Maria Gabriela</strong>. Toque nela para aceitá-la.</p>
         <button id="play-button">🌹</button>
         <div class="text-below" id="text-below">
-            <div class="main-text">
-                O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
-                Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas as suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
+            <div class="main-text" id="main-text">
+                <!-- Texto principal será inserido dinamicamente pelo JavaScript -->
             </div>
             <br><br>
             <div class="highlight">
@@ -121,14 +120,43 @@
         const audio = document.getElementById('audio');
         const playButton = document.getElementById('play-button');
         const textBelow = document.getElementById('text-below');
+        const mainText = document.getElementById('main-text');
+
+        // Texto principal dividido em sílabas
+        const textoPrincipal = `
+            O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
+            Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram amor e suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de boba e se impõem com suas retóricas em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus mais complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas as suas qualidades com quem não possa fazê-la abrir um lindo sorriso.
+        `;
+
+        // Função para dividir o texto em sílabas
+        function dividirEmSilabas(texto) {
+            return texto.split(/(?<=[^aeiouáéíóúãõâêîôûàèìòùäëïöü])(?=[aeiouáéíóúãõâêîôûàèìòùäëïöü])/gi);
+        }
+
+        // Função para exibir o texto sílaba por sílaba
+        function exibirSilabas(texto, elemento) {
+            const silabas = dividirEmSilabas(texto);
+            let i = 0;
+            const intervalo = setInterval(() => {
+                if (i < silabas.length) {
+                    elemento.innerHTML += silabas[i];
+                    i++;
+                } else {
+                    clearInterval(intervalo);
+                }
+            }, 150); // Velocidade de exibição (150ms por sílaba)
+        }
 
         playButton.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
                 textBelow.style.display = 'block';
+                mainText.innerHTML = ''; // Limpa o conteúdo anterior
+                exibirSilabas(textoPrincipal, mainText); // Exibe o texto sílaba por sílaba
             } else {
                 audio.pause();
                 textBelow.style.display = 'none';
+                mainText.innerHTML = ''; // Limpa o conteúdo ao ocultar o texto
             }
         });
     </script>
