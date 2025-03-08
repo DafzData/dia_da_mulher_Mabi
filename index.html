@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mensagem do Dia das Mulheres</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> <!-- Fonte Dancing Script -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"> 
     <style>
         body {
-            background-color: #fdf5e6; /* Fundo claro e acolhedor */
+            background-color: #fdf5e6;
             color: #333;
-            font-family: 'Dancing Script', cursive, sans-serif; /* Fonte elegante */
+            font-family: 'Dancing Script', cursive, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
@@ -30,25 +30,24 @@
             margin: 20px auto;
         }
         #play-button img {
-            width: 200px; /* Tamanho da rosa */
+            width: 300px; /* Rosa grande */
             transition: transform 0.2s ease;
+            display: block;
         }
         #play-button img:hover {
-            transform: scale(1.1); /* Zoom ao passar o mouse */
+            transform: scale(1.1);
         }
         .text-below {
             font-size: 1.5em;
             margin-top: 20px;
             line-height: 1.8;
         }
-
-        /* Ajustes para telas menores (mobile) */
         @media (max-width: 768px) {
             #play-button img {
-                width: 150px; /* Rosa menor em dispositivos móveis */
+                width: 250px; /* Rosa menor em dispositivos móveis */
             }
             .text-below {
-                font-size: 1.3em; /* Texto ajustado para mobile */
+                font-size: 1.3em;
             }
         }
     </style>
@@ -56,43 +55,33 @@
 <body>
     <div id="message">
         <button id="play-button">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Red_rose.svg/1200px-Red_rose.svg.png" alt="Rosa"> <!-- Rosa -->
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Red_rose.svg" alt="Rosa">
         </button>
         <div class="text-below" id="text-below" style="display: none;">
             O Danilo sóbrio, que consegue te enxergar através das nossas nuvens de emoções, queria lhe dizer umas palavras nesta data especial.<br><br>
-            
-            Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte, que sempre encarou as adversidades da vida como um aprendizado; de uma mulher independente, que foi transformada pelo melhor exemplo dos que lhe deram suporte e também pelo seu próprio caráter; de uma mulher inteligente, que não deixa ninguém fazê-la de tonta e se impõe com seus melhores argumentos em sua fala doce, porém firme; de uma mulher que transcende a razão e busca nas artes, poesia e músicas a melhor forma de expressar seus complexos sentimentos; e de uma mulher de grandes ambições que jamais vai desperdiçar seu tempo e todas suas qualidades com quem não possa fazê-la abrir um lindo sorriso.<br><br>
-            
-            <strong>Feliz Dia da Mulher!!!</strong><br><br>
-            
-            <em>P.s.: Eu ouvi o seu áudio, mas ainda estou processando tudo e esperando que tanto os maus quanto os bons sentimentos sejam filtrados na minha cabeça antes de comentar algo. Desculpe por não responder ainda. Mas esta carta não é sobre Eu e a Mabi, é somente sobre a mulher que a Maria Gabriela se tornou.</em>
+            Hoje é o seu dia, Maria Gabriela, o dia de uma mulher forte...
+            <br><br>
+            <strong>Feliz Dia da Mulher!!!</strong>
         </div>
     </div>
 
-    <!-- Elemento de áudio -->
     <audio id="audio" loop>
-        <source src="./musica.mp3" type="audio/mpeg">
+        <source src="./Blackbird.mp3" type="audio/mpeg">
         Seu navegador não suporta o elemento de áudio.
     </audio>
 
     <script>
-        // Captura o elemento de áudio
         const audio = document.getElementById('audio');
-
-        // Captura o botão da rosa
         const playButton = document.getElementById('play-button');
-
-        // Captura o texto abaixo
         const textBelow = document.getElementById('text-below');
 
-        // Adiciona um evento de clique ao botão para iniciar a reprodução do áudio
         playButton.addEventListener('click', function() {
             if (audio.paused) {
-                audio.play(); // Inicia a reprodução do áudio
-                textBelow.style.display = 'block'; // Mostra o texto
+                audio.play();
+                textBelow.style.display = 'block';
             } else {
-                audio.pause(); // Pausa a reprodução do áudio
-                textBelow.style.display = 'none'; // Oculta o texto
+                audio.pause();
+                textBelow.style.display = 'none';
             }
         });
     </script>
