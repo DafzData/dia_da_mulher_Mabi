@@ -39,7 +39,7 @@
             border: none;
             cursor: pointer;
             margin: 20px auto;
-            font-size: 320px; /* Tamanho do botão */
+            font-size: 280px; /* Tamanho do botão reduzido (era 320px) */
             transition: transform 0.2s ease;
             line-height: 1;
             color: inherit; /* Assegura que a cor do emoji se encaixe no tema */
@@ -101,7 +101,7 @@
                 font-size: 1.3em; /* Ajuste para dispositivos móveis */
             }
             #play-button {
-                font-size: 240px; /* Tamanho ajustado para dispositivos móveis */
+                font-size: 200px; /* Tamanho ajustado para dispositivos móveis (era 240px) */
             }
         }
     </style>
@@ -181,9 +181,6 @@
                             } else {
                                 paragrafoIndex++;
                                 setTimeout(mostrarProximoParagrafo, 500); // Intervalo entre parágrafos
-
-                                // Rola a tela para o novo parágrafo
-                                p.scrollIntoView({ behavior: 'smooth', block: 'end' });
                             }
                         }
 
@@ -196,9 +193,6 @@
                     // Após o texto principal terminar, exibe o highlight e o PS
                     highlight.style.opacity = 1;
                     ps.style.opacity = 1;
-
-                    // Rola a tela para o final do texto
-                    ps.scrollIntoView({ behavior: 'smooth', block: 'end' });
                 }
             }
 
