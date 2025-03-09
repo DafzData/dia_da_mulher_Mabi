@@ -181,6 +181,9 @@
                             } else {
                                 paragrafoIndex++;
                                 setTimeout(mostrarProximoParagrafo, 500); // Intervalo entre parágrafos
+
+                                // Rola a tela para o novo parágrafo
+                                p.scrollIntoView({ behavior: 'smooth', block: 'end' });
                             }
                         }
 
@@ -193,6 +196,9 @@
                     // Após o texto principal terminar, exibe o highlight e o PS
                     highlight.style.opacity = 1;
                     ps.style.opacity = 1;
+
+                    // Rola a tela para o final do texto
+                    ps.scrollIntoView({ behavior: 'smooth', block: 'end' });
                 }
             }
 
